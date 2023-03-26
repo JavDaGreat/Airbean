@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux"
 import { add } from "./Redux/Action"
+import addIcon from './assets/add.svg'
+
 
 
 
@@ -14,10 +16,12 @@ dispatch(add({name:title,price,id}))
 }
 
 
-  return <div>
-    <h3>{title} / <b>{price} kr</b></h3>
+  return <div className="showMenu">
+        <button onClick={handleClick}> <img src={addIcon} alt="" /></button>
+        <h3>{title} </h3>
+        <h4>{price} KR</h4> <br />
+
     <p>{desc}</p>
-    <button onClick={handleClick}>Buy</button>
   </div>
 }
 export default ShowMenu

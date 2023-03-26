@@ -11,7 +11,6 @@ function Cart (){
  const dispatch=useDispatch()
 
 
-const [showContent,setShowContent]=useState(false)
   const product = useSelector(state => state.products)
   const total= product.reduce((acc, obj) => {
     return acc + obj.price;
@@ -26,9 +25,7 @@ const [showContent,setShowContent]=useState(false)
     const content= product.map((pro)=>{
       return <ShowCart name={pro.name} price={pro.price} id={pro.id} key={pro.id} />
     })
-  function handleClick(){
-    setShowContent(!showContent)
-  }
+ 
   async function handlePurchase(){
     console.log(product);
     const resp= await fetch('https://airbean.awesomo.dev/api/beans/order',{
@@ -47,17 +44,18 @@ const [showContent,setShowContent]=useState(false)
 
   }
 
-  return <div><h1>Din Beställning</h1>
-  <div>
-    <button onClick={handleClick}>Show</button>
-    {showContent && content}
+  return <ul className="cart">
+    <h1>Din Beställning</h1>
+  
+  {content}
 
-    <button onClick={handlePurchase}>take my money</button>
     <h3>Total:{total}</h3>
     <p>inklusiv moms + leverans</p>
-  </div>
+    <button onClick={handlePurchase} >take my money</button>
+
+  
   
 
-  </div>
+  </ul>
 }
 export default Cart

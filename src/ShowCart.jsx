@@ -1,8 +1,7 @@
 function ShowCart({name,price}){
-  return <div>
+  return <li className="list-cart">
     <h4>{name}</h4>
     <p>{price} Kr</p>
-    <button>Delete</button>
-  </div>
+  </li>
 }
 export default ShowCart

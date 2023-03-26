@@ -23,10 +23,10 @@ function Status(){
   return <div className="status">
 <h3>Tack för din beställning </h3>
 <p>beställningsNr : <b> #{state?.orderNr} </b></p>
-<h2>Din beställning är på väg</h2>
+
 <img src= {drone} alt="" />
   <div>{Number.isInteger(test) ? (
-        <p> <b>{test} </b>minuter </p>
+         <p> <b>{test} </b>minuter </p>
       ) : test}
       </div>
       <button onClick={()=>{navigate('/menu')}}>Ok ! cool</button>
