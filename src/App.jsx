@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Home.jsx';
 import Menu from './Menu.jsx';
 import Status from './Status.jsx';
-
+import About from './about.jsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +17,10 @@ function App() {
     {
       path:'/status',
       element:<Status />
+    },
+    {
+      path:'/about',
+      element:<About />
     }
 
   ]);

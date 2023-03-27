@@ -5,13 +5,14 @@ import addIcon from './assets/add.svg'
 
 
 
-function ShowMenu({id,title,desc,price}){
+function ShowMenu({id,title,desc,price,setCounter}){
   const dispatch = useDispatch();
  
 
 function handleClick(){
 
 dispatch(add({name:title,price,id}))
+setCounter(prev=>prev+1)
 
 }
 

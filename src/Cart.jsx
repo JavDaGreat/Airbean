@@ -11,6 +11,7 @@ function Cart (){
  const dispatch=useDispatch()
 
 
+
   const product = useSelector(state => state.products)
   const total= product.reduce((acc, obj) => {
     return acc + obj.price;
@@ -28,6 +29,7 @@ function Cart (){
  
   async function handlePurchase(){
     console.log(product);
+
     const resp= await fetch('https://airbean.awesomo.dev/api/beans/order',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -38,8 +40,10 @@ function Cart (){
   
   )
   const data= await resp.json()
- dispatch(reset())
+  
   navigate ('/status', {state:{orderNr:data.orderNr}})
+
+ dispatch(reset())
 
 
   }

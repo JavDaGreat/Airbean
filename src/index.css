@@ -15,6 +15,11 @@
   height: 800px;
   width: 400px;
 }
+span{
+  background-color: #E5674E;
+  color: white;
+  border-radius: 50%;
+}
 
 .home{
   height: 800px;
@@ -39,25 +44,30 @@
   height: 800px;
   width: 400px;
   margin:auto;
+  background-color: #F3E4E1;
+  color: #2F2926;
+  overflow: auto;
+
 
 }
-.cart-dropdown {
-  display: none;
+.cart-dropdown{
   position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
+  top: 75px;
+  width: 350px;
+  height: 600px;
+  background-color: white;
+  margin-left: 30px;
+
 }
 
 nav {
   position: absolute;
-  top: 0;
+  top: 8px;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: 800px;
+  width: 408px;
   display: flex;
+  margin: auto;
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
@@ -132,6 +142,7 @@ header > button{
   border-radius: 50%;
   border: none;
   background-color: white;
+  margin: 1rem;
 
 }
 
@@ -154,12 +165,17 @@ header > button{
   border-radius: 50%;
   border: none;
   margin: auto 1rem;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.648);
   
   
 }
+.showMenu > button:hover{
+  transform: translateY(-0.1em);
+  cursor: pointer;
+}
 .showMenu > h4{
   margin-left: auto;
+  padding-right: 0.5rem;
 }
 .showMenu > p{
   flex-basis: 100%;
@@ -169,25 +185,8 @@ header > button{
   
 }
 
-.cart-dropdown{
-  position:absolute;
-  top: 0;
-  right: 0;
-  height: 700px;
-  width: 350px;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(100%);
-  transition: all .3s ease;
-}
-.cart-dropdown .show{
-  transform: translateX(0);
-  background-color: rgba(0, 0, 0, 0.664);
-}
+
+
 .list-cart{
   list-style: none;
   display: flex;
@@ -201,8 +200,8 @@ header > button{
   margin-right: auto;
 }
 .cart{
-  padding: 0;
-}
+  padding: 1rem;
+overflow: auto;}
 
 .cart > button{
   height: 50px;
@@ -210,20 +209,26 @@ header > button{
   background-color: #2F2926;
   border: none;
   border-radius: 25px;
+  margin: 1rem;
+}
+.cart > button:hover{
+  transform: translateY(0.1rem);
+}
+.cart > button:active{
+width: calc(0.9);
 }
 .cart > h1{
-  position: fixed;
-  top: 0;
+ padding: 1rem;
+ text-align: center;
   
 }
-.cart > button {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 2rem;
-}
+
+
 .cart-dropdown{
   background-color: white;
   color: #2F2926;
+  overflow: auto;
+  transition: all 0.3s;
 }
 
 
@@ -249,5 +254,24 @@ height: 30px;
 text-align: center;
 cursor: pointer;
 margin-bottom: 1rem;
+}
+.about{
+  background-color: #F3E4E1;
+  color: #2F2926;
+  padding: 1rem;
+}
+.vd{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.vd > p,h3,img{
+  margin: 0;
+}
+.text-about{
+  font-size: 12px;
+}
+.vd> img{
+  border-radius: 50%;
 }
 

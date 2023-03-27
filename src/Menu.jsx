@@ -9,6 +9,7 @@ import close from './assets/closev2.svg'
 
 function Menu() {
   const[Menu,setMenu]=useState([])
+  const [counter,setCounter]=useState(0)
   const[showNav,setShowNav]=useState(false)
   const[showCart,setShowCart]= useState(false)
 
@@ -27,40 +28,25 @@ function Menu() {
   
 
 const menuProducts=Menu.map((product)=>{
-  return <ShowMenu  title={product.title} key={product.id} id={product.id} desc={product.desc} price={product.price}/>
+  return <ShowMenu setCounter={setCounter} title={product.title} key={product.id} id={product.id} desc={product.desc} price={product.price}/>
 })
 
-function handleNavClick(){
-  setShowNav(!showNav)
-  
-}
-function handleCartClick(){
-  setShowCart(!showCart)
-  
-}
-function handleClose(){
-  setShowNav(!showNav)
-}
+const open= <div className= 'cart-dropdown'>
+<Cart  />
+</div>
 
-
-
- 
 
 
   return <div className="menu">
     <header className="header">
-      <button className='nav-btn' onClick={handleNavClick}> <img src={navIcon} alt="" /></button>
-      <button className="cart-btn" onClick={handleCartClick}> <img src={cartIcon} alt="" /></button>
-
+      <button className='nav-btn' onClick={()=>{setShowNav(!showNav)}}> <img src={navIcon} alt="" /></button>
+      <button className="cart-btn" onClick={()=>{setShowCart(!showCart)}}> <img src={cartIcon} alt="" /> <span>{counter}</span></button>
     </header>
-<div className={showCart ? 'show cart-dropdown ':'cart-dropdown'} >
- 
-   <Cart />
- 
-</div>
+    {showCart && open}
+
 <nav className={showNav ? 'show':''}>
   <ul className="nav-menu">
-    <button onClick={handleClose}> <img src={close} alt="" /> </button>
+    <button onClick={()=>{setShowNav(!showNav)}}> <img src={close} alt="" /> </button>
     <li><a href="/">Home</a></li>
     <li><a href="/status">Status</a></li>
     <li><a href="/menu">Menu</a></li>
@@ -69,7 +55,6 @@ function handleClose(){
   </ul>
 </nav>
 <h2 className="h2-meny">Meny</h2>
-  
 {menuProducts} 
 
   </div>
