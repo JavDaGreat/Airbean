@@ -2,9 +2,6 @@ import { useDispatch } from "react-redux"
 import { add } from "./Redux/Action"
 import addIcon from './assets/add.svg'
 
-
-
-
 function ShowMenu({id,title,desc,price,setCounter}){
   const dispatch = useDispatch();
  
