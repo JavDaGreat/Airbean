@@ -1,8 +1,7 @@
 import { useSelector,useDispatch } from "react-redux"
 import ShowCart from "./ShowCart.jsx";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { reset} from "./Redux/Action"
+import { addNr, reset} from "./Redux/Action"
 
 
 
@@ -13,6 +12,7 @@ function Cart (){
 
 
   const product = useSelector(state => state.products)
+
   const total= product.reduce((acc, obj) => {
     return acc + obj.price;
   }, 0);
@@ -30,6 +30,7 @@ function Cart (){
   async function handlePurchase(){
     console.log(product);
 
+
     const resp= await fetch('https://airbean.awesomo.dev/api/beans/order',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -41,9 +42,12 @@ function Cart (){
   )
   const data= await resp.json()
   
-  navigate ('/status', {state:{orderNr:data.orderNr}})
+  
+  dispatch(addNr(data.orderNr))
 
  dispatch(reset())
+ navigate ('/status')
+
 
 
   }
@@ -53,7 +57,7 @@ function Cart (){
   
   {content}
 
-    <h3>Total:{total}</h3>
+    <h3>Total : {total} Kr</h3>
     <p>inklusiv moms + leverans</p>
     <button onClick={handlePurchase} >take my money</button>
 

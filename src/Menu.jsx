@@ -1,10 +1,10 @@
 import { useState,useEffect } from "react"
 import ShowMenu from "./ShowMenu"
 import Cart from "./Cart"
-
 import cartIcon from './assets/cart-icon.svg'
 import navIcon from './assets/navicon.svg'
 import close from './assets/closev2.svg'
+import { useNavigate } from "react-router-dom"
 
 
 function Menu() {
@@ -12,6 +12,7 @@ function Menu() {
   const [counter,setCounter]=useState(0)
   const[showNav,setShowNav]=useState(false)
   const[showCart,setShowCart]= useState(false)
+  const Navigate=useNavigate()
 
   useEffect(() => {
  const fetchmenu= async ()=>{
@@ -47,10 +48,10 @@ const open= <div className= 'cart-dropdown'>
 <nav className={showNav ? 'show':''}>
   <ul className="nav-menu">
     <button onClick={()=>{setShowNav(!showNav)}}> <img src={close} alt="" /> </button>
-    <li><a href="/">Home</a></li>
-    <li><a href="/status">Status</a></li>
-    <li><a href="/menu">Menu</a></li>
-    <li><a href="/about">About</a></li>
+    <li><a onClick={()=>{Navigate('/')}}>Home</a></li>
+    <li><a onClick={()=>{Navigate('/status')}}>Status</a></li>
+    <li><a onClick={()=>{Navigate('/menu')}}>Menu</a></li>
+    <li><a onClick={()=>{Navigate('/about')}}>About</a></li>
 
   </ul>
 </nav>

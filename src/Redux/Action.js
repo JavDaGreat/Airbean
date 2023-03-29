@@ -1,16 +1,24 @@
 function add(value){
   console.log(value);
 
+
 return{
   type:'ADD',
-  payload:{"name":value.name,"price":value.price,"id":value.id}
+  payload:value
 }
 }
 function reset(){
   return{
   type:'RESET'
+  
   }
+}
+function addNr(nr){
+  return{
+  type:'ADDNR',
+  payload:{'order':nr}
+}
 }
 
 
-export {add,reset}
+export {add,reset,addNr}

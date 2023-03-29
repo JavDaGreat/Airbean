@@ -2,10 +2,12 @@ import { useState } from "react"
 import navIcon from './assets/navicon.svg'
 import close from './assets/closev2.svg'
 import image from'./assets/eva-cortado.jpg'
+import { useNavigate } from "react-router-dom"
 
 
 function About(){
   const[showNav,setShowNav]=useState(false)
+  const Navigate= useNavigate()
 
   return <div className="about">
     <header><button className='nav-btn' onClick={()=>{setShowNav(!showNav)}}> <img src={navIcon} alt="" /></button>
@@ -13,10 +15,10 @@ function About(){
 <nav className={showNav ? 'show':''}>
   <ul className="nav-menu">
     <button onClick={()=>{setShowNav(!showNav)}}> <img src={close} alt="" /> </button>
-    <li><a href="/">Home</a></li>
-    <li><a href="/status">Status</a></li>
-    <li><a href="/menu">Menu</a></li>
-    <li><a href="/about">About</a></li>
+    <li><a onClick={()=>{Navigate('/')}}>Home</a></li>
+    <li><a onClick={()=>{Navigate('/status')}}>Status</a></li>
+    <li><a onClick={()=>{Navigate('/menu')}}>Menu</a></li>
+    <li><a onClick={()=>{Navigate('/about')}}>About</a></li>
 
   </ul>
 </nav>

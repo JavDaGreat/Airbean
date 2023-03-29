@@ -157,6 +157,7 @@ header > button{
 .showMenu{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   
 }
 .showMenu > button{
