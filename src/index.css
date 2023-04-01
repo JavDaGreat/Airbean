@@ -192,6 +192,7 @@ header > button{
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .list-cart > p{
   margin: auto;
@@ -199,6 +200,17 @@ header > button{
 .list-cart > h4
 {
   margin-right: auto;
+}
+.list-cart > button{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: none;
+  margin-right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .cart{
   padding: 1rem;

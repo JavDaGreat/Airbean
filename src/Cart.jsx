@@ -5,8 +5,9 @@ import { addNr, reset} from "./Redux/Action"
 
 
 
-function Cart (){
+function Cart ({number}){
  const navigate=useNavigate()
+
  const dispatch=useDispatch()
 
 
@@ -22,32 +23,35 @@ function Cart (){
       "order":product
     }
   }
-
-    const content= product.map((pro)=>{
-      return <ShowCart name={pro.name} price={pro.price} id={pro.id} key={pro.id} />
+  function deleteDuplicate(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
+}
+    const filterProduct= deleteDuplicate(product,'name')
+    const content= filterProduct.map((pro)=>{
+      return <ShowCart name={pro.name} price={pro.price} id={pro.id} key={pro.id}  number={number}/>
     })
  
   async function handlePurchase(){
     console.log(product);
 
-
+    if(product.length>0){
     const resp= await fetch('https://airbean.awesomo.dev/api/beans/order',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(takeOrder)
     
     
-  }
-  
-  )
+  } )
   const data= await resp.json()
-  
   
   dispatch(addNr(data.orderNr))
 
  dispatch(reset())
- navigate ('/status')
-
+ 
+ navigate ('/status')}else{
+ 
+  navigate('/status' )}
+ 
 
 
   }

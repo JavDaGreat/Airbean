@@ -33,15 +33,19 @@ const menuProducts=Menu.map((product)=>{
 })
 
 const open= <div className= 'cart-dropdown'>
-<Cart  />
+<Cart number={setCounter} />
 </div>
 
+let cardIcons= <img src={cartIcon} alt="" />
+if(showCart){
+  cardIcons= <img src={close}></img>
+}
 
 
   return <div className="menu">
     <header className="header">
       <button className='nav-btn' onClick={()=>{setShowNav(!showNav)}}> <img src={navIcon} alt="" /></button>
-      <button className="cart-btn" onClick={()=>{setShowCart(!showCart)}}> <img src={cartIcon} alt="" /> <span>{counter}</span></button>
+      <button className="cart-btn" onClick={()=>{setShowCart(!showCart)}}> {cardIcons} <span>{counter}</span></button>
     </header>
     {showCart && open}
 

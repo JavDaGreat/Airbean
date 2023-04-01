@@ -18,7 +18,16 @@ function addNr(nr){
   type:'ADDNR',
   payload:{'order':nr}
 }
+
+}
+function deleteOrder(value){
+  return{
+    type:'DELETE',
+    payload:value
+
+  }
+
 }
 
 
-export {add,reset,addNr}
+export {add,reset,addNr,deleteOrder}
