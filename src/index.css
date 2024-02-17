@@ -15,11 +15,6 @@
   height: 800px;
   width: 400px;
 }
-span {
-  background-color: #e5674e;
-  color: white;
-  border-radius: 50%;
-}
 
 .home {
   height: 800px;
@@ -90,13 +85,7 @@ nav.show {
 .nav-menu a:hover {
   text-decoration: underline rgba(255, 255, 255, 0.863);
 }
-.nav-menu > button {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  border: none;
-  background-color: white;
-}
+
 .nav-menu > button:hover {
   border-color: white;
   background-color: white;
@@ -130,14 +119,19 @@ header {
   justify-content: space-between;
 }
 header > button {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   border: none;
   background-color: white;
   margin: 1rem;
 }
 
+.counter {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 .h2-meny {
   text-align: center;
 }
@@ -171,6 +165,12 @@ header > button {
   font-size: small;
   margin-left: 2rem;
   margin-top: 0;
+}
+.cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .list-cart {

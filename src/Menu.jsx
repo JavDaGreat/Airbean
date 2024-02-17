@@ -130,7 +130,7 @@ function Menu() {
           onClick={() => {
             setShowCart(!showCart);
           }}>
-          {cardIcons} <span>{counter}</span>
+          {cardIcons} <span className="counter">{counter}</span>
         </button>
       </header>
       {showCart && open}
