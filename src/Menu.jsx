@@ -145,6 +145,7 @@ function Menu() {
           </button>
           <li>
             <a
+              className="link"
               onClick={() => {
                 Navigate("/");
               }}>
@@ -153,6 +154,7 @@ function Menu() {
           </li>
           <li>
             <a
+              className="link"
               onClick={() => {
                 Navigate("/status");
               }}>
@@ -161,14 +163,16 @@ function Menu() {
           </li>
           <li>
             <a
+              className="link"
               onClick={() => {
-                Navigate("/menu");
+                setShowNav(false);
               }}>
               Menu
             </a>
           </li>
           <li>
             <a
+              className="link"
               onClick={() => {
                 Navigate("/about");
               }}>
