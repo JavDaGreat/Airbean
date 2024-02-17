@@ -5,6 +5,7 @@ import cartIcon from "./assets/cart-icon.svg";
 import navIcon from "./assets/navicon.svg";
 import close from "./assets/closev2.svg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Menu() {
   const [Menu, setMenu] = useState([]);
@@ -12,6 +13,10 @@ function Menu() {
   const [showNav, setShowNav] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const Navigate = useNavigate();
+  const product = useSelector((state) => state.products);
+  useEffect(() => {
+    setCounter(product.length);
+  }, [product]);
 
   useEffect(() => {
     const fetchmenu = async () => {
@@ -106,7 +111,7 @@ function Menu() {
 
   const open = (
     <div className="cart-dropdown">
-      <Cart number={setCounter} />
+      <Cart />
     </div>
   );
 
@@ -141,7 +146,7 @@ function Menu() {
             onClick={() => {
               setShowNav(!showNav);
             }}>
-            <img src={close} alt="" />{" "}
+            <img src={close} alt="" />
           </button>
           <li>
             <a

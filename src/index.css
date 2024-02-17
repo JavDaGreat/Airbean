@@ -177,10 +177,13 @@ header > button {
 }
 
 .list-cart {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
   align-items: center;
+  width: 100%;
+  list-style: none;
+  gap: 8px;
 }
 .list-cart > p {
   margin: auto;
@@ -202,6 +205,11 @@ header > button {
 .cart {
   padding: 1rem;
   overflow: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .cart > button {

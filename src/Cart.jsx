@@ -3,7 +3,7 @@ import ShowCart from "./ShowCart.jsx";
 import { useNavigate } from "react-router-dom";
 import { addNr, reset } from "./Redux/Action";
 
-function Cart({ number }) {
+function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.products);
@@ -25,19 +25,11 @@ function Cart({ number }) {
   const filterProduct = deleteDuplicate(product, "name");
   const content = filterProduct.map((pro) => {
     return (
-      <ShowCart
-        name={pro.name}
-        price={pro.price}
-        id={pro.id}
-        key={pro.id}
-        number={number}
-      />
+      <ShowCart name={pro.name} price={pro.price} id={pro.id} key={pro.id} />
     );
   });
 
   async function handlePurchase() {
-    console.log(product);
-
     if (product.length > 0) {
       try {
         const resp = await fetch(
