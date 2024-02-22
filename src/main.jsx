@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import { legacy_createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./Redux/reducer";
+import reducer from "./Redux/Reducer";
 const store = legacy_createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
